@@ -1,0 +1,21 @@
+.bg-dark {
+  background-color: #007b5e !important;
+}
+
+input {
+  border: 0;
+}
+
+@media screen and (max-width:500px) {
+    form{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .btn{
+      width: 40%;
+      background: #4386e4;
+    }
+}
+
