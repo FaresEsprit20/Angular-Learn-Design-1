@@ -8,19 +8,10 @@
     </div>
     <div class="row mb-4">
         <div class="col">
-            <form action="">
-              <div class="p-1 bg-light form-control-rounded rounded rounded-pill shadow-sm mb-4 ">
-                <div class="input-group">
-                  <input id="searchInput" type="search" placeholder="What're you searching for?" aria-describedby="button-addon1" class="form-control border-0 bg-light">
-                  <div class="input-group-append">
-                    <button id="button-addon1" type="submit" class="btn btn-link text-primary"><i class="fa fa-search"></i></button>
-                  </div>
-                </div>
-              </div>
-            </form>
+           
             <form action="">
               <div class="input-group mb-4 border rounded-pill p-1">
-                <input id="searchInputtwo" type="search" placeholder="What're you searching for?" aria-describedby="button-addon3" class="form-control bg-none border-0">
+                <input id="searchInputtwo" type="search"  #searchinput (keyup)="searchme()" placeholder="What're you searching for?" aria-describedby="button-addon3" class="form-control bg-none border-0" >
                 <div class="input-group-append border-0">
                   <button id="button-addon3" type="submit" class="btn btn-link text-dark"><i class="fa fa-search"></i></button>
                 </div>
@@ -29,58 +20,20 @@
           </div>
     </div>
     <div class="row" id="lessonList">
-      <div class="col-12 col-lg-4">
+      <div class="col-12 col-lg-4" *ngFor="let item  of data | searchFilter: mysearch ">
         <div class="card mb-4 mb-lg-0 border-secondary shadow">
-          <img src="assets/images/lessons/css.jpeg" alt="Animations CSS modernes" class="card-img-top">
+          <img src="{{item.image}}" alt="Animations CSS modernes" class="card-img-top">
           <div class="card-body">
-            <h5 class="card-title">Créez des animations CSS</h5>
-            <p class="card-text">Vous allez plonger dans le monde des animations CSS pour donner vie à vos pages web !</p>
-            <a href="courses/details/1" class="btn btn-info btn--start ">Démarrer l'apprentissage</a>
+            <h5 class="card-title">{{ item.title }}</h5>
+            <p class="card-text">{{item.text}}</p>
+            <a href="courses/details/{{item.id}}" class="btn btn-info btn--start ">Démarrer l'apprentissage</a>
           </div>
         </div>
       </div>
-      <div class="col-12 col-lg-4">
-        <div class="card mb-4 mb-lg-0 border-secondary shadow">
-          <img src="assets/images/lessons/js.jpeg" alt="Programmation JavaScript" class="card-img-top">
-          <div class="card-body">
-            <h5 class="card-title">Programmer avec JavaScript</h5>
-            <p class="card-text">Ce cours est conçu pour vous enseigner les bases du langage de programmation JavaScript.</p>
-            <a href="courses/details/1" class="btn btn--start btn-info ">Démarrer l'apprentissage</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-lg-4">
-        <div class="card mb-4 mb-lg-0 border-secondary shadow">
-          <img src="assets/images/lessons/swift.jpeg" alt="Programmation Swift" class="card-img-top">
-          <div class="card-body">
-            <h5 class="card-title">Les fondamentaux de Swift</h5>
-            <p class="card-text">Découvrez le développement iOS et réalisez des applications taillées pour l'iPhone et l'iPad !</p>
-            <a href="courses/details/1" class="btn btn-info btn--start ">Démarrer l'apprentissage</a>
-          </div>
-        </div>
-      </div>
+     
+  
     </div>
   </div>
 
-  <script> 
-   
-   $(document).ready(function(){
-      $("#searchInput").on("keyup", function() {
-         var value = $(this).val().toLowerCase();
-         $("#lessonList .col-12").filter(function() {
-            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-         });
-      });
-   });
-   
-   $(document).ready(function(){
-      $("#searchInputtwo").on("keyup", function() {
-         var value = $(this).val().toLowerCase();
-         $("#lessonList .col-12").filter(function() {
-            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-         });
-      });
-   });
 
-</script>
 <app-footer></app-footer>

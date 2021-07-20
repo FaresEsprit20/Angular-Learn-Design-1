@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +11,9 @@ import { CoursesComponent } from './template/ui/pages/courses/courses.component'
 import { CoursesDetailsComponent } from './template/ui/pages/courses-details/courses-details.component';
 import { AnimationsComponent } from './template/ui/pages/animations/animations.component';
 import { NotFoundComponent } from './core/guards/not-found/not-found.component';
+import { SearchService } from './core/services/search.service';
+import { SearchFilterPipe } from './core/pipes/SearchFilterPipe';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -20,13 +24,16 @@ import { NotFoundComponent } from './core/guards/not-found/not-found.component';
     CoursesComponent,
     CoursesDetailsComponent,
     AnimationsComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    SearchFilterPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    Ng2SearchPipeModule
   ],
-  providers: [],
+  providers: [SearchService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

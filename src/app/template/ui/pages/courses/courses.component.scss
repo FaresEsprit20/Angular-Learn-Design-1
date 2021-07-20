@@ -1,18 +1,3 @@
-$headings-color: #284876;
-$headings-font-family: "Times New Roman", Times, serif;
-
-h1{
-    font: $headings-font-family;
-    color: $headings-color;
-    }
-
-.card-title{
-font: $headings-font-family;
-color: $headings-color;
-}
-
-
-
 .form{    
     &-control:focus{
         border: 1px solid #284876;
