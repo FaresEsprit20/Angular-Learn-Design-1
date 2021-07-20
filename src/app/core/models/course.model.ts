@@ -14,10 +14,11 @@ export class CourseModel {
  competences: competencesModel[];
  teachers: teacherModel[];
  image:string;
+ video:string;
 
 
  constructor(id:number,title:string,text:string,chapters:chapterModel[],follow: boolean, preriquisite: preriquisiteModel[],
-    competence:competencesModel[],teachers:teacherModel[],image:string){
+    competence:competencesModel[],teachers:teacherModel[],image:string, video:string){
     
     this.id = id;
     this.title = title;
@@ -28,7 +29,8 @@ export class CourseModel {
     this.competences = competence;
     this.teachers = teachers;
     this.image = image;
-    
+    this.video = video;
+
     }
 
 
